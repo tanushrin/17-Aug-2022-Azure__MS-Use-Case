@@ -6,7 +6,7 @@
 | SQL Server 2008 R2 (Dedicated Server for Database and Datawarehouse. |
 | SQL Server Analysis Services (SSAS - Tabular) - Component of Microsoft SQL Server database used as Analytical Processing and Data Mining Tool to Analyze information spread out across multiple databases, or in tables or files. |
 | SQL Server Integration Services (SSIS) - Component of Microsoft SQL Server database software that can be used for Data Extraction, Transformation, and Loading. |
-| SQL Server Reporting Serivces (SSRS) - Component of Microsoft SQL Server database software that can be used to prepare and deliver a variety of interactive reports. |
+| SQL Server Reporting Services (SSRS) - Component of Microsoft SQL Server database software that can be used to prepare and deliver a variety of interactive reports. |
 
 | __NOTES:-__ |
 | --------- |
@@ -35,7 +35,7 @@
 | __PowerBI__ - For Prepare and Deliver Reports. |
 
 
-| __REFERENCE DOCUMENTATION ON ABOVE SELECTED SERVICES:-__ |
+| __REFERENCE DOCUMENTATION ON THE ABOVE SELECTED SERVICES:-__ |
 | --------- |
 | [Azure WebApp](https://docs.microsoft.com/en-us/azure/app-service/overview) |
 | [Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?view=azuresql) |
@@ -66,7 +66,7 @@
 | __Azure SQL Managed Instance__ | PaaS SQL Database. |
 | __Azure Data Lake Store__ | Storage for Big Data Analytic Workloads. |
 | __Azure Analysis Services__ | PaaS Data Model. |
-| __Azure-SSIS Integration Runtimes In Azure Data Factory__ | Microsoft Managed Virtual Machines running SSIS Engine which alloes to Natively run SSIS Packages.  |
+| __Azure-SSIS Integration Runtimes In Azure Data Factory__ | Microsoft Managed Virtual Machines running SSIS Engine which allows to Natively run SSIS Packages.  |
 | __PowerBI__ | SaaS - Data Analysis Tool. |
 |  __PowerBI Premium Gen2__| Data Analysis Including Azure Analysis Services Capabilities. |
 
@@ -87,8 +87,8 @@
 | __DMA CAPABILITIES:-__ |
 | --------- |
 | Migrate an on-premises SQL Server instance to a modern SQL Server instance (On-Prem or Azure).  |
-| Discovers the compatibility issues that can block Migration to Target SQL Instance. Provides Recommendation to help resolve issues. |
-| Detects partially supported or unsupported features. Provides Recommendation to help resolve issues. |
+| Discovers the compatibility issues that can block Migration to Target SQL Instance. Provides Recommendations to help resolve issues. |
+| Detects partially supported or unsupported features. Provides Recommendations to help resolve issues. |
 | Discover New Features in the Target SQL Instance that the database can benefit from after an upgrade. |
 | After a successful migration, applications can connect to the target SQL Server databases seamlessly. |
 
@@ -104,7 +104,7 @@
 | Configure Required Firewall Rules. | 
 | Setting up Azure Active Directory Admin (It can be an AAD User or AAD Group). |
 | Configuring Required Role Based Access Control(RBAC). |
-| Setting up Audit and Vulnerability Assessment in Azure SQL Mananged Identity and Populating the Report in Storage Account With Email Notification.
+| Setting up Audit and Vulnerability Assessment in Azure SQL Managed Identity and Populating the Report in Storage Account With Email Notification.
 | Web Application running on Azure App Services, if needed to Connect to Azure SQL managed Instance, it will be using the System/User Assigned Managed Identity of the App Service rather than local SQL Username and Password. |
 
 
@@ -126,13 +126,13 @@
 
 | __PROPOSED GUIDELINES FOR ENVIRONMENTS:-__ |
 | --------- |
-| Azure Resources SKU of DEV Environment will be on lower side as compared to UAT and PROD. |
+| Azure Resources SKU of DEV Environment will be on the lower side as compared to UAT and PROD. |
 | UAT and PROD will have like to like configuration with the sole purpose that if there is any issue in production, it can be reproduced in UAT. |
 
 
 | __PROPOSED GUIDELINES FOR MIGRATION:-__ |
 | --------- |
-| POC (Proof-of-Concept) or MVP (Minimal-Viable-Product) based on the above requirement gathering - Focus on Functional Testing rather than Performance Testing  during POC phase. |
+| POC (Proof-of-Concept) or MVP (Minimal-Viable-Product) based on the above requirement gathering - Focus on Functional Testing rather than Performance Testing during the POC phase. |
 | If MVP is successful, we will create the Non-Prod Environment( DEV, UAT) |
 | Performance Testing will be done on the Non-Prod Environment (UAT) |
 | Based on the success criteria defined, an equivalent like to like Production environment will be deployed. |
@@ -149,22 +149,22 @@
 
 | __CALLING OUT EXCEPTIONS:-__ |
 | --------- |
-| Customer should have Robust Network Infratsructure - Azure __HUB AND SPOKE__. Building Hub and Spoke is __OUT OF SCOPE.__ | 
+| Customer should have Robust Network Infrastructure - Azure __HUB AND SPOKE__. Building Hub and Spoke is __OUT OF SCOPE.__ | 
 | Customer should have Resilient Bandwidth Connecting Azure and In-House Datacentre. Setting up this connectivity is __OUT OF SCOPE.__ |
 | Customer's .NET Application Should be easily deployed in App Services (__No Refactor Required__).
-| Azure Devops is the CI/CD platform. |
+| Azure DevOps is the CI/CD platform. |
 
 
 | __BUSINESS CONTINUITY AND DISASTER RECOVERY (BCDR):-__ |
 | --------- |
-| In the peered region, a subset of the environment(application infrastructure) should be created. Why Subset? 1.1. During Disaster, Application should be running with Limited Functionality. 1.2. Cost - Important Factor - As this will be a cold site (an infrastructure which may be used in the Event of Disaster or DR Tests.) |
-| Dotnet Application Running on App services (Application code resides in Azure Git and can be deployed immediatey using Azure devops pipeline) |
-| Azure SQL Managed Instance with Geo Replication. |
+| In the peered region, a subset of the environment(application infrastructure) should be created. Why Subset? 1.1. During a Disaster, the Application should be running with Limited Functionality. 1.2. Cost - Important Factor - As this will be a cold site (an infrastructure which may be used in the Event of Disaster or DR Tests.) |
+| Dotnet Application Running on App services (Application code resides in Azure Git and can be deployed immediately using Azure DevOps pipeline) |
+| Azure SQL Managed Instance with Geo-Replication. |
 | Azure Analysis Services Backup in Storage Account Residing in Peered Region. |
 | Azure-SSIS Integration Runtime in Azure Data Factory Deployed in Peered Region. |
 
 
-| __CUSTOMER REQUIREMENTS/NEEDS__ | __IF REQUREMENTS HAS BEEN MET:-__ |
+| __CUSTOMER REQUIREMENTS/NEEDS__ | __IF REQUIREMENTS HAVE BEEN MET:-__ |
 | --------- | --------- |
 | Migration from In-House SQL to Azure SQL Managed Instance. | Yes |
 | All PaaS Service Required. | Yes |
@@ -172,5 +172,5 @@
 | If Migration can be done in 6 Months. | Yes (Considering the Exceptions called out) |
 | Scalability. | Yes |
 | Security and Vulnerability of Azure SQL Managed Instance. | Yes |
-| BCDR (Business Continutiy and Disaster Recovery) - In the event of a regional outage, we would like to be able to resume the applications within minutes and recover the data warehouse within 48 hours. | Yes |
+| BCDR (Business Continuity and Disaster Recovery) - In the event of a regional outage, we would like to be able to resume the applications within minutes and recover the data warehouse within 48 hours. | Yes |
 
