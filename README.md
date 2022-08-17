@@ -122,7 +122,7 @@
 | --------- |
 | DEV |
 | UAT |
-| PRDO |
+| PROD |
 
 | __PROPOSED GUIDELINES FOR ENVIRONMENTS:-__ |
 | --------- |
